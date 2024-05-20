@@ -19,10 +19,10 @@
             <h1><a href="index.html" class="logo">M.</a></h1>
             <ul class="list-unstyled components mb-5">
                 <li class="active">
-                    <a href="#"><span class="fa fa-home"></span> Home</a>
+                    <a href="/"><span class="fa fa-home"></span> Home</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-user"></span> Categories</a>
+                    <a href="{{ route('categories.index') }}"><span class="fa fa-user"></span> Categories</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa fa-sticky-note"></span> Tache</a>
