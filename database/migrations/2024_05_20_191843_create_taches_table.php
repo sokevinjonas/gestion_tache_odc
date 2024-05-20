@@ -13,6 +13,24 @@ return new class extends Migration
     {
         Schema::create('taches', function (Blueprint $table) {
             $table->id();
+            $table->string('titre', 100);
+            $table->date('date_debut');
+            $table->date('date_fin');
+            $table->string('etat', 30);
+            $table->text('description')->nullable()->default(null);
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('categorietache_id');
+            
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+
+            $table->foreign('categorietache_id')
+                ->references('id')->on('categorie_taches')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+                
             $table->timestamps();
         });
     }

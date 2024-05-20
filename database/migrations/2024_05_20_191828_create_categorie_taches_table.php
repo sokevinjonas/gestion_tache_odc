@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('categorie_taches', function (Blueprint $table) {
             $table->id();
+            $table->string('libelle', 100);
+            $table->text('description')->nullable()->default(null);
             $table->timestamps();
         });
     }
