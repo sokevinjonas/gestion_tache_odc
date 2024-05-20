@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CategorieTache;
 
 class CategorieTacheController extends Controller
 {
     public function index()
-    {
-        return view('categorietaches.index');
+    {   
+        $categories = CategorieTache::all();
+        
+        return view('categorietaches.index', [
+            'categories' => $categories
+        ]);
     }
 
     public function create()

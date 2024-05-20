@@ -8,8 +8,14 @@ use App\Http\Controllers\CategorieTacheController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('categories/index', [CategorieTacheController::class, 'index'])->name('categories.index');
 Route::get('taches/index', [TacheController::class, 'index'])->name('taches.index');
+
+Route::get('categories/index', [CategorieTacheController::class, 'index'])->name('categories.index');
+Route::get('categories/create', [CategorieTacheController::class, 'create'])->name('categories.create');
+Route::post('categories/store', [CategorieTacheController::class, 'store'])->name('categories.store');
+Route::post('categories/show/{id}', [CategorieTacheController::class, 'show'])->name('categories.show');
+Route::post('categories/edit/{id}', [CategorieTacheController::class, 'edit'])->name('categories.edit');
+Route::post('categories/destroy/{id}', [CategorieTacheController::class, 'destroy'])->name('categories.destroy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
