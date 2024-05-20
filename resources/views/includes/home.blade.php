@@ -25,7 +25,7 @@
                     <a href="{{ route('categories.index') }}"><span class="fa fa-user"></span> Categories</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-sticky-note"></span> Tache</a>
+                    <a href="{{ route('taches.index') }}"><span class="fa fa-sticky-note"></span> Tache</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa fa-cogs"></span> Users</a>

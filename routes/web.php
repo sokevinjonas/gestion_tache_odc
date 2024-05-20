@@ -1,14 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TacheController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategorieTacheController;
 
-Route::get('/', function () {
-    return view('includes.home');
-});
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('categories/index', [CategorieTacheController::class, 'index'])->name('categories.index');
+Route::get('taches/index', [TacheController::class, 'index'])->name('taches.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
