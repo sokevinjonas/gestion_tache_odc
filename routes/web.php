@@ -9,6 +9,11 @@ use App\Http\Controllers\CategorieTacheController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('taches/index', [TacheController::class, 'index'])->name('taches.index');
+Route::get('taches/create', [TacheController::class, 'create'])->name('taches.create');
+Route::post('taches/store', [TacheController::class, 'store'])->name('taches.store');
+Route::post('taches/show/{id}', [TacheController::class, 'show'])->name('taches.show');
+Route::post('taches/edit/{id}', [TacheController::class, 'edit'])->name('taches.edit');
+Route::post('taches/destroy/{id}', [TacheController::class, 'destroy'])->name('taches.destroy');
 
 Route::get('categories/index', [CategorieTacheController::class, 'index'])->name('categories.index');
 Route::get('categories/create', [CategorieTacheController::class, 'create'])->name('categories.create');

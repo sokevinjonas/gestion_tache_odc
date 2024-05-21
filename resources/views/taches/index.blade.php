@@ -1,14 +1,44 @@
 @extends('includes.home')
 @section('content')
-    <h2 class="mb-4">Taches</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-        deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-        deserunt mollit anim id est laborum.</p>
+    <div class="container mt-5">
+        <h2>Liste des Tâches</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Date de début</th>
+                    <th scope="col">Date de fin</th>
+                    <th scope="col">État</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Catégorie de tâche</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($taches as  $data)
+                    <tr>
+                        <th scope="row">{{ $data->id }}</th>
+                        <td>{{ $data->titre }}</td>
+                        <td>{{ $data->date_debut }}</td>
+                        <td>{{ $data->date_fin }}</td>
+                        <td>{{ $data->etat }}</td>
+                        <td>{{ $data->description }}</td>
+                        <td>{{ $data->categorietache_id }}</td>
+                        <td>
+                            <a href="edit.html" class="btn btn-primary btn-sm">Modifier</a>
+                            <button class="btn btn-danger btn-sm">Supprimer</button>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5">Aucun enregistrement</td>
+                    </tr>
+                @endforelse
+                <!-- Fin de l'exemple -->
+                <!-- Répétez ce bloc pour chaque tâche -->
+            </tbody>
+        </table>
+        <a href="{{ route('taches.create') }}" class="btn btn-success">Ajouter une Tâche</a>
+    </div>
 @endsection

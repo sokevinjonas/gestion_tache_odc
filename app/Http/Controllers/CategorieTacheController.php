@@ -21,13 +21,16 @@ class CategorieTacheController extends Controller
         return view('categorietaches.create');
     }
 
-    public function store(Request $request)
+    public function store()
     {
         request()->validate([
             'libelle' => 'required',
         ]);
 
-        CategorieTache::create($request->all());
+        $categorie = new CategorieTache();
+        $categorie->libelle = request()->libelle;
+
+        $categorie->save();
 
         return redirect()->route('categories.index');
     }
