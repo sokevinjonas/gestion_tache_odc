@@ -24,7 +24,9 @@
                         <td>{{ $data->date_fin }}</td>
                         <td>{{ $data->etat }}</td>
                         <td>{{ $data->description }}</td>
-                        <td>{{ $data->categorietache_id }}</td>
+                        <td>
+                            {{ $data->categorieTache ? $data->categorieTache->libelle : 'rien' }}
+                        </td>
                         <td>
                             <a href="edit.html" class="btn btn-primary btn-sm">Modifier</a>
                             <button class="btn btn-danger btn-sm">Supprimer</button>

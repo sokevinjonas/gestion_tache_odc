@@ -11,7 +11,8 @@ class TacheController extends Controller
 {
     public function index()
     {   
-        $taches = Tache::all();
+        // $taches = Tache::all();
+        $taches = Tache::with('categorieTache')->get();
         return view('taches.index', compact('taches'));
     }
 
@@ -32,15 +33,14 @@ class TacheController extends Controller
             'description' => 'nullable|string',
             'categorietache_id' => 'required|integer',
         ]);
-        // $user = Auth::user();
+        $user = Auth::user();
         $tache = new Tache();
         $tache->titre = $data['titre'];
         $tache->date_debut = $data['date_debut'];
         $tache->date_fin = $data['date_fin'];
         $tache->etat = $data['etat'];
         $tache->description = $data['description'];
-        // $tache->user_id = $user->id;
-        $tache->user_id = "1";
+        $tache->user_id = $user->id;
         $tache->categorietache_id = $data['categorietache_id'];
 
         $tache->save();

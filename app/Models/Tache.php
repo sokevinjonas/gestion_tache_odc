@@ -11,9 +11,7 @@ class Tache extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-		'titre',
-	];
+    protected $guarded = [];
 
     public function categorieTache()
     {
